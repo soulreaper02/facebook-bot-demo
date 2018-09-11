@@ -1,7 +1,6 @@
 const express = require('express')
 const morgan = require('morgan ');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
 const app = express();
 
 // app configuration
