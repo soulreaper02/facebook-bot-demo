@@ -1,5 +1,7 @@
+'use strict'
+
 const express = require('express')
-const morgan = require('morgan ');
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(bodyParser.json());
 
 
 // app routes
-require('./process/webhook_verify')(app);
+require('./routes/webhook_verify')(app);
 
 // warming up the engines !! setta !! go !!!.
 app.listen(app.get('port'), function() {
