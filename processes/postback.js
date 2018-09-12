@@ -7,7 +7,7 @@ const sendMessage = require('../templates/sendMessage');
      const payload = event.postback.payload;
 
      if (payload === 'WELCOME') {
-        equest({
+        request({
             url: "https://graph.facebook.com/v2.6/" + senderId,
             qs: {
                 access_token: process.env.PAGE_ACCESS_TOKEN,
