@@ -1,6 +1,7 @@
 const request = require('request');
 const senderAction = require('../templates/senderAction');
 const sendMessage = require('../templates/sendMessage');
+const sendGenericTemplate = require('../templates/sendGenericTemplate');
 
 module.exports = function processMessage(event) {
     if (!event.message.is_echo) {
@@ -31,8 +32,9 @@ module.exports = function processMessage(event) {
 
             request(options, function (error, response, body) {
                 if (error) throw new Error(error);
-
-                console.log(body);
+                senderAction(senderID);
+                // after the response is recieved we will send the details in a Generic template
+                sendGenericTemplate(senderID,body);
             });
 
         }
