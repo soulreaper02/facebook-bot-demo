@@ -6,7 +6,7 @@ module.exports = function processMessage(event) {
     if (!event.message.is_echo) {
         const message = event.message;
         const senderID = event.sender.id;
-        console.log("Received message from senderId: " + senderId);
+        console.log("Received message from senderId: " + senderID);
         console.log("Message is: " + JSON.stringify(message));
         if (message.text) {
             // now we will take the text recieved and send it to an food tracking API.
