@@ -7,7 +7,7 @@ module.exports = function sendGenericTemplate(recipientId, respBody) {
         let obj = {
             "title":respBody[i].food_name,
             "image_url": respBody[i].thumbnail,
-            "subtitle": 'Total Calories: ' + respBody[i].total_calories + '\n' +'protein: ' + respBody[i].protein,
+            "subtitle": 'Total Calories: ' + respBody[i].total_calories + '/n' +'protein: ' + respBody[i].protein,
         }
         nutritionalValue.push(obj);
     }
