@@ -8,7 +8,7 @@ const sendMessage = require('../templates/sendMessage');
 
      if (payload === 'WELCOME') {
         request({
-            url: "https://graph.facebook.com/v2.6/" + senderId,
+            url: "https://graph.facebook.com/v2.6/" + senderID,
             qs: {
                 access_token: process.env.PAGE_ACCESS_TOKEN,
                 fields: "first_name"
@@ -28,14 +28,14 @@ const sendMessage = require('../templates/sendMessage');
             let message = greeting + "Welcome to Healthbot. Hope you are doing good today";
             let message2 = "I am your nutrition tracker :-)"
             let message3 = "please type in what you ate like: I ate chicken birayani and 2 chapatis with dal.";
-            senderAction(senderId);
+            senderAction(senderID);
             sendMessage(senderID, {text: message}).then(() => {
                 sendMessage(senderID, { text: message2 }).then(() => {
                     sendMessage(senderID, {  text: message3});
                 });
             });
-            senderAction(senderId);
-            sendMessage(senderId, { text: '🎈' });
+            senderAction(senderID);
+            sendMessage(senderID, { text: '🎈' });
         });
      }
  }
