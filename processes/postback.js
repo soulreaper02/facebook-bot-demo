@@ -23,7 +23,6 @@ const sendMessage = require('../templates/sendMessage');
                 console.log(bodyObject);
                 name = bodyObject.first_name;
                 greeting = "Hello " + name  + ". ";
-                console.log(greeting);
             }
             let message = greeting + "Welcome to Healthbot. Hope you are doing good today";
             let message2 = "I am your nutrition tracker :-)"
@@ -31,11 +30,11 @@ const sendMessage = require('../templates/sendMessage');
             senderAction(senderID);
             sendMessage(senderID, {text: message}).then(() => {
                 sendMessage(senderID, { text: message2 }).then(() => {
-                    sendMessage(senderID, {  text: message3});
+                    sendMessage(senderID, {  text: message3}).then(() => {
+                        sendMessage(senderID, { text: '🎈' });
+                    })
                 });
             });
-            senderAction(senderID);
-            sendMessage(senderID, { text: '🎈' });
         });
      }
  }
