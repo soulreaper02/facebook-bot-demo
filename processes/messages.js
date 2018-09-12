@@ -10,7 +10,7 @@ module.exports = function processMessage(event) {
         console.log("Message is: " + JSON.stringify(message));
         if (message.text) {
             // now we will take the text recieved and send it to an food tracking API.
-            let message = message.text;
+            let text = message.text;
             var request = require("request");
 
             let options = {
@@ -24,7 +24,7 @@ module.exports = function processMessage(event) {
                 body:
                 {
                     userID: process.env.USERID,
-                    searchTerm: message
+                    searchTerm: text
                 },
                 json: true
             };
